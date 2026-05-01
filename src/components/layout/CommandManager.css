@@ -1,0 +1,30 @@
+.command-manager {
+  display: flex; flex-direction: column; background: #F0F0F0;
+  border-bottom: 1px solid #CCCCCC; flex-shrink: 0;
+}
+.cm-ribbon {
+  display: flex; height: 80px; padding: 4px 8px; background: #F5F5F5;
+  border-bottom: 1px solid #E0E0E0; overflow-x: auto;
+}
+.cm-group { display: flex; align-items: center; gap: 2px; }
+.cm-separator { width: 1px; height: 60px; background: #CCCCCC; margin: 0 8px; }
+.cm-btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  min-width: 50px; height: 70px; padding: 6px; background: transparent; border: 1px solid transparent;
+  border-radius: 2px; color: #333; cursor: pointer;
+}
+.cm-btn:hover { background: #E5F3FB; border-color: #CCE8FF; }
+.cm-btn.active { background: #CCE8FF; border-color: #99D1FF; }
+.cm-icon { color: #116BA5; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; height: 32px; }
+.cm-label { font-size: 10px; text-align: center; line-height: 1.1; max-width: 60px; word-wrap: break-word; }
+
+.cm-tabs { display: flex; align-items: flex-end; height: 26px; padding: 0 10px; gap: 4px; background: #E5E5E5; }
+.cm-tab {
+  padding: 4px 12px; font-size: 11px; background: #F0F0F0; border: 1px solid transparent;
+  border-bottom: none; border-radius: 4px 4px 0 0; color: #555; cursor: pointer; margin-bottom: -1px;
+}
+.cm-tab:hover { background: #F9F9F9; }
+.cm-tab.active {
+  background: #F5F5F5; border-color: #E0E0E0; border-top-color: #116BA5; border-top-width: 2px;
+  color: #333; font-weight: 600;
+}

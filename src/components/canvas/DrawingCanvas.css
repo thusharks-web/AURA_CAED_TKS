@@ -7,9 +7,23 @@
 }
 .coord-overlay {
   position: absolute; bottom: 0; right: 0;
-  display: flex; gap: 16px; padding: 6px 14px;
-  background: rgba(22,22,37,0.9); backdrop-filter: blur(10px);
-  border-top: 1px solid var(--border); border-left: 1px solid var(--border);
-  border-radius: var(--radius-sm) 0 0 0;
-  font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+  display: flex; gap: 16px; padding: 4px 12px;
+  background: #FFFFFF; border-top: 1px solid #CCCCCC; border-left: 1px solid #CCCCCC;
+  font-family: var(--font-mono); font-size: 11px; color: #555555;
 }
+
+.sw-headsup-toolbar {
+  position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 4px; padding: 4px 6px;
+  background: rgba(255, 255, 255, 0.9); border: 1px solid #CCCCCC;
+  border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); z-index: 10;
+  backdrop-filter: blur(4px);
+}
+.sw-headsup-toolbar button {
+  display: flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; background: transparent; border: 1px solid transparent;
+  color: #333333; border-radius: 2px; cursor: pointer;
+}
+.sw-headsup-toolbar button:hover { background: #E5F3FB; border-color: #CCE8FF; }
+.sw-headsup-toolbar button.active { background: #CCE8FF; border-color: #99D1FF; color: #116BA5; }
+.sw-headsup-divider { width: 1px; height: 16px; background: #CCCCCC; margin: 0 4px; }

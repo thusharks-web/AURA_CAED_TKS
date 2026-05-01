@@ -4,6 +4,7 @@ import type { Entity, LineData, CircleData, ArcData, RectangleData, EllipseData,
 import type { Point } from '../../lib/geometry';
 import { distance } from '../../lib/geometry';
 import { COLORS, SHEET_SIZES } from '../../lib/constants';
+import { ZoomIn, ZoomOut, Grid3X3, Magnet, Trash2 } from 'lucide-react';
 import './DrawingCanvas.css';
 
 function generateId(): string {
@@ -19,7 +20,7 @@ export default function DrawingCanvas() {
     entities, activeTool, isConstructionMode, viewportOffset, zoom,
     gridEnabled, snapEnabled, gridSize, cursorPosition,
     addEntity, selectEntity, deselectAll, setCursorPosition,
-    setViewport, selectedEntityIds, sheetSize,
+    setViewport, selectedEntityIds, sheetSize, toggleGrid, toggleSnap, clearCanvas, setZoom,
   } = useCanvasStore();
 
   const [isDrawing, setIsDrawing] = useState(false);
@@ -574,6 +575,15 @@ export default function DrawingCanvas() {
 
   return (
     <div className="drawing-canvas-container" ref={containerRef} id="drawing-canvas">
+      <div className="sw-headsup-toolbar">
+        <button onClick={() => setZoom(zoom * 1.2)} title="Zoom In"><ZoomIn size={14}/></button>
+        <button onClick={() => setZoom(zoom / 1.2)} title="Zoom Out"><ZoomOut size={14}/></button>
+        <div className="sw-headsup-divider" />
+        <button className={gridEnabled ? 'active' : ''} onClick={toggleGrid} title="Grid"><Grid3X3 size={14}/></button>
+        <button className={snapEnabled ? 'active' : ''} onClick={toggleSnap} title="Snap"><Magnet size={14}/></button>
+        <div className="sw-headsup-divider" />
+        <button onClick={clearCanvas} title="Clear Canvas"><Trash2 size={14}/></button>
+      </div>
       <canvas
         ref={canvasRef}
         width={canvasSize.width}

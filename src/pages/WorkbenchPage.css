@@ -1,2 +1,10 @@
-.workbench-page { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
-.workbench-body { display: flex; flex: 1; overflow: hidden; }
+.sw-workbench-page {
+  display: flex; flex-direction: column; height: 100vh; overflow: hidden;
+  background: #E5E5E5;
+}
+.sw-workbench-body {
+  display: flex; flex: 1; overflow: hidden;
+}
+.sw-viewport {
+  flex: 1; position: relative; display: flex; flex-direction: column; overflow: hidden;
+}
