@@ -1,18 +1,20 @@
-.status-bar {
+.sw-status-wrapper {
+  display: flex; flex-direction: column; flex-shrink: 0; background: #E5E5E5;
+}
+.sw-sheet-tabs {
+  display: flex; padding: 0 10px; gap: 2px;
+}
+.sw-sheet-tab {
+  padding: 4px 16px; font-size: 11px; background: #E0E0E0; border: 1px solid #CCCCCC;
+  border-bottom: none; border-radius: 4px 4px 0 0; cursor: pointer; color: #555;
+  font-family: 'Arial', sans-serif;
+}
+.sw-sheet-tab.active { background: #FFFFFF; font-weight: 600; color: #333; }
+.sw-status-bar {
   display: flex; align-items: center; justify-content: space-between;
-  height: 28px; background: var(--bg-secondary);
-  border-top: 1px solid var(--border); padding: 0 12px;
-  font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
-  flex-shrink: 0;
+  height: 24px; background: #F0F0F0; border-top: 1px solid #CCCCCC;
+  padding: 0 12px; font-size: 11px; color: #333; font-family: 'Arial', sans-serif;
 }
-.status-left, .status-center, .status-right { display: flex; align-items: center; gap: 12px; }
-.status-item { display: flex; align-items: center; gap: 4px; }
-.status-item.active { color: var(--success); }
-.status-divider { width: 1px; height: 14px; background: var(--border); }
-.coord { font-weight: 500; }
-.coord-label { color: var(--text-muted); }
-.status-tool { color: var(--accent-light); font-weight: 600; display: flex; align-items: center; gap: 6px; }
-.constr-badge {
-  font-size: 9px; padding: 1px 6px; border-radius: 100px;
-  background: rgba(79,195,247,0.2); color: var(--info);
-}
+.sw-status-left, .sw-status-right { display: flex; align-items: center; gap: 8px; }
+.sw-status-coord { width: 150px; text-align: right; }
+.sw-status-divider { width: 1px; height: 16px; background: #CCCCCC; margin: 0 4px; }

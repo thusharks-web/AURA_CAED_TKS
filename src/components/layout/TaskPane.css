@@ -1,0 +1,32 @@
+.sw-task-pane-container {
+  display: flex; height: 100%; border-left: 1px solid #CCCCCC;
+}
+.sw-task-pane-tabs {
+  width: 32px; background: #FFFFFF; display: flex; flex-direction: column; gap: 4px; padding: 4px 0;
+  border-left: 1px solid #EAEAEA;
+}
+.sw-task-pane-tabs button {
+  background: transparent; border: 1px solid transparent; padding: 6px 0; cursor: pointer;
+  display: flex; justify-content: center;
+}
+.sw-task-pane-tabs button:hover { background: #E5F3FB; border-color: #CCE8FF; }
+.sw-task-pane-tabs button.active { background: #CCE8FF; border-color: #99D1FF; }
+
+.sw-task-pane-panel {
+  width: 250px; background: #F5F5F5; display: flex; flex-direction: column;
+}
+.sw-tp-header {
+  display: flex; justify-content: space-between; align-items: center; padding: 6px 8px;
+  background: #E0E0E0; font-weight: 600; font-size: 11px; color: #333;
+  border-bottom: 1px solid #CCCCCC;
+}
+.sw-tp-close {
+  background: transparent; border: none; cursor: pointer; color: #555;
+}
+.sw-tp-close:hover { color: #D32F2F; }
+.sw-tp-content {
+  flex: 1; padding: 8px; overflow-y: auto; background: #FFFFFF;
+}
+.sw-tp-placeholder {
+  color: #888; font-size: 11px; text-align: center; padding: 20px;
+}

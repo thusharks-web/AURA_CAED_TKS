@@ -1,6 +1,7 @@
 import MenuBar from '../components/layout/MenuBar';
 import CommandManager from '../components/layout/CommandManager';
 import FeatureManager from '../components/layout/FeatureManager';
+import TaskPane from '../components/layout/TaskPane';
 import StatusBar from '../components/layout/StatusBar';
 import DrawingCanvas from '../components/canvas/DrawingCanvas';
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts';
@@ -18,6 +19,7 @@ export default function WorkbenchPage() {
         <div className="sw-viewport">
           <DrawingCanvas />
         </div>
+        <TaskPane />
       </div>
       <StatusBar />
     </div>
