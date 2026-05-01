@@ -1,0 +1,83 @@
+// SolidWorks 2019 Drawing Tool shortcut map
+export const SHORTCUTS: Record<string, string> = {
+  'l': 'line',
+  'c': 'circle',
+  'r': 'rectangle',
+  'a': 'arc',
+  'n': 'spline',
+  'q': 'construction',
+  't': 'trim',
+  'o': 'offset',
+  'm': 'mirror',
+  'd': 'dimension',
+  'f': 'zoomFit',
+  'g': 'gridToggle',
+  's': 'select',
+  'p': 'point',
+  'e': 'ellipse',
+};
+
+export const SHEET_SIZES = {
+  A0: { width: 1189, height: 841 },
+  A1: { width: 841, height: 594 },
+  A2: { width: 594, height: 420 },
+  A3: { width: 420, height: 297 },
+  A4: { width: 297, height: 210 },
+} as const;
+
+export const COLORS = {
+  canvasBackground: '#1E1E2E',
+  gridMinor: '#2A2A3A',
+  gridMajor: '#3A3A4A',
+  entityDefault: '#FFFFFF',
+  constructionLine: '#4FC3F7',
+  selectedEntity: '#00E676',
+  constraintSymbol: '#FFD600',
+  dimensionText: '#FFFFFF',
+  hatchPattern: '#AAAAAA',
+  accent: '#6C63FF',
+  accentLight: '#8B83FF',
+  accentDark: '#4A42D4',
+  surface: '#252536',
+  surfaceLight: '#2D2D42',
+  surfaceDark: '#1A1A2A',
+  textPrimary: '#E4E4EF',
+  textSecondary: '#9595A8',
+  border: '#3A3A4E',
+  success: '#00E676',
+  warning: '#FFD600',
+  error: '#FF5252',
+  info: '#4FC3F7',
+};
+
+export const VTU_MODULES = [
+  { number: 1, title: 'Introduction to Engineering Drawing', icon: '📐' },
+  { number: 2, title: 'Curves', icon: '〰️' },
+  { number: 3, title: 'Projection of Points and Lines', icon: '📍' },
+  { number: 4, title: 'Projection of Planes', icon: '🔷' },
+  { number: 5, title: 'Projection of Solids', icon: '🧊' },
+  { number: 6, title: 'Section of Solids', icon: '🔪' },
+  { number: 7, title: 'Development of Surfaces', icon: '📦' },
+  { number: 8, title: 'Isometric Projections', icon: '🔲' },
+  { number: 9, title: 'Orthographic Projections', icon: '📊' },
+  { number: 10, title: 'Dimensioning & Annotation', icon: '📏' },
+];
+
+export const EXERCISES = [
+  { id: '1', module: 1, title: 'Lettering & Title Block', difficulty: 1, description: 'Practice standard engineering lettering (uppercase and lowercase) and create a VTU standard title block with all required fields.' },
+  { id: '2', module: 1, title: 'Plain & Diagonal Scale', difficulty: 2, description: 'Construct a plain scale of 1:5 to read meters and decimeters, and a diagonal scale of RF 1:2500 to read meters.' },
+  { id: '3', module: 2, title: 'Ellipse — Concentric Circles Method', difficulty: 2, description: 'Draw an ellipse with major axis 100mm and minor axis 60mm using the concentric circles method.' },
+  { id: '4', module: 2, title: 'Parabola — Rectangle Method', difficulty: 2, description: 'Construct a parabola given the base 80mm and axis 60mm using the rectangle method.' },
+  { id: '5', module: 2, title: 'Cycloid (Rolling Circle d=50mm)', difficulty: 3, description: 'Draw a cycloid for a circle of diameter 50mm rolling along a straight line for one complete revolution.' },
+  { id: '6', module: 2, title: 'Involute of Circle r=30mm', difficulty: 3, description: 'Construct the involute of a circle with radius 30mm for one full revolution.' },
+  { id: '7', module: 3, title: 'Projection of Point in All Quadrants', difficulty: 2, description: 'Project a point located at given distances from HP and VP in all four quadrants.' },
+  { id: '8', module: 3, title: 'Line inclined 30° to HP and 45° to VP', difficulty: 3, description: 'Draw the projections of a line 80mm long, inclined at 30° to HP and 45° to VP.' },
+  { id: '9', module: 4, title: 'Pentagon inclined 45° to HP', difficulty: 3, description: 'Draw the projections of a regular pentagon of side 30mm, inclined at 45° to HP.' },
+  { id: '10', module: 5, title: 'Square Prism with axis inclined 30°', difficulty: 4, description: 'Draw the projections of a square prism (base 40mm, height 65mm) with axis inclined at 30° to HP.' },
+  { id: '11', module: 5, title: 'Cone with apex touching VP', difficulty: 4, description: 'Draw the projections of a cone (base diameter 50mm, axis 70mm) with apex touching VP.' },
+  { id: '12', module: 6, title: 'Section of Cylinder by oblique plane', difficulty: 4, description: 'A cylinder (diameter 50mm, axis 70mm) is cut by a plane inclined at 45° to HP. Draw the front view, sectional top view, and true shape of section.' },
+  { id: '13', module: 7, title: 'Development of Cone lateral surface', difficulty: 4, description: 'Draw the development of the lateral surface of a right circular cone (base diameter 60mm, slant height 80mm).' },
+  { id: '14', module: 8, title: 'Isometric view of Prism + Pyramid', difficulty: 4, description: 'Draw the isometric view of a combination of a square prism (base 40mm, height 30mm) surmounted by a square pyramid (height 40mm).' },
+  { id: '15', module: 9, title: 'Orthographic views of bracket (3-view)', difficulty: 5, description: 'Draw the front view, top view, and side view of the given bracket using first angle projection.' },
+  { id: '16', module: 10, title: 'Fully dimensioned bracket drawing', difficulty: 5, description: 'Complete the dimensioning of the given bracket drawing using IS standards including linear, angular, and radial dimensions.' },
+];

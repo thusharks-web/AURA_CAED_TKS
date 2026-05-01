@@ -1,0 +1,46 @@
+.exercises-page { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+.exercises-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 32px; border-bottom: 1px solid var(--border); background: var(--bg-secondary);
+}
+.exercises-header-left { display: flex; align-items: center; gap: 16px; }
+.exercises-header h1 { font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.exercises-search {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 0 12px;
+}
+.exercises-search svg { color: var(--text-muted); }
+.exercises-search input { border: none; background: transparent; padding: 8px 0; font-size: 14px; color: var(--text-primary); width: 200px; outline: none; }
+
+.exercises-body { display: flex; flex: 1; overflow: hidden; }
+.modules-sidebar {
+  width: 260px; background: var(--bg-secondary); border-right: 1px solid var(--border);
+  padding: 16px; overflow-y: auto; flex-shrink: 0;
+}
+.modules-sidebar h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 12px; }
+.module-filter {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  padding: 8px 12px; border-radius: var(--radius-sm);
+  background: transparent; color: var(--text-secondary);
+  font-size: 12px; text-align: left; border: none;
+  transition: all 0.15s; margin-bottom: 2px; cursor: pointer;
+}
+.module-filter:hover { background: var(--bg-surface-light); color: var(--text-primary); }
+.module-filter.active { background: var(--accent-glow); color: var(--accent-light); }
+.mf-icon { font-size: 16px; }
+.mf-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.exercises-grid {
+  flex: 1; overflow-y: auto; padding: 24px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px; align-content: start;
+}
+.exercise-card { padding: 20px; transition: all 0.3s; }
+.exercise-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.exercise-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.exercise-module { font-size: 11px; font-weight: 600; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.5px; }
+.exercise-difficulty { display: flex; gap: 2px; }
+.exercise-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.exercise-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px; }
+.exercises-empty { grid-column: 1 / -1; text-align: center; padding: 60px; color: var(--text-muted); }

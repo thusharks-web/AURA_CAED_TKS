@@ -1,0 +1,31 @@
+.top-ribbon {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 44px; background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border); padding: 0 12px;
+  flex-shrink: 0;
+}
+.ribbon-left, .ribbon-center, .ribbon-right { display: flex; align-items: center; gap: 6px; }
+.ribbon-group { display: flex; align-items: center; gap: 4px; }
+.ribbon-divider { width: 1px; height: 24px; background: var(--border); margin: 0 4px; }
+.ribbon-btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: var(--radius-sm);
+  background: transparent; color: var(--text-secondary);
+  transition: all 0.15s; border: none;
+}
+.ribbon-btn:hover { background: var(--bg-surface-light); color: var(--text-primary); }
+.ribbon-btn.active { background: var(--accent-glow); color: var(--accent-light); }
+.ribbon-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.title-input {
+  background: transparent; border: 1px solid transparent;
+  padding: 4px 10px; font-size: 14px; font-weight: 600;
+  color: var(--text-primary); border-radius: var(--radius-sm);
+  width: 200px;
+}
+.title-input:focus { border-color: var(--accent); background: var(--bg-surface); }
+.zoom-value { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); min-width: 40px; text-align: center; }
+.ribbon-select {
+  background: var(--bg-surface-light); border: 1px solid var(--border);
+  color: var(--text-primary); padding: 4px 8px; border-radius: var(--radius-sm);
+  font-size: 12px; cursor: pointer;
+}
