@@ -33,3 +33,7 @@
 .fm-layer-name { flex: 1; }
 .fm-layer-item button { background: none; border: none; cursor: pointer; color: #555; }
 .fm-layer-item button:hover { color: #116BA5; }
+
+.icon-yellow { color: #D4A017; fill: #FCE6A3; }
+.icon-blue { color: #116BA5; fill: #CCE8FF; }
+.icon-green { color: #2E7D32; fill: #A5D6A7; }

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useUserStore } from '../../store/userStore';
 import { useDrawingActions } from '../../hooks/useDrawingActions';
+import { Home, FilePlus, FolderOpen, Save, Printer, Undo2, Redo2, Settings } from 'lucide-react';
 import './MenuBar.css';
 
 export default function MenuBar() {
@@ -11,7 +12,20 @@ export default function MenuBar() {
   return (
     <div className="sw-menubar">
       <div className="sw-menubar-logo" onClick={() => navigate(user ? '/dashboard' : '/')}>
-        <span className="sw-icon">DS</span> SOLIDWORKS
+        <div className="sw-red-square">DS</div>
+        SOLIDWORKS
+      </div>
+      <div className="sw-quick-access">
+        <button onClick={() => navigate(user ? '/dashboard' : '/')}><Home size={14}/></button>
+        <button><FilePlus size={14}/></button>
+        <button><FolderOpen size={14}/></button>
+        <button onClick={() => saveDrawing()}><Save size={14}/></button>
+        <button><Printer size={14}/></button>
+        <div className="sw-qa-divider" />
+        <button><Undo2 size={14}/></button>
+        <button><Redo2 size={14}/></button>
+        <div className="sw-qa-divider" />
+        <button><Settings size={14}/></button>
       </div>
       <div className="sw-menus">
         <div className="sw-menu-item">File

@@ -1,5 +1,5 @@
 import { useCanvasStore } from '../../store/canvasStore';
-import { Eye, EyeOff, Lock, Unlock, Plus } from 'lucide-react';
+import { Eye, EyeOff, Lock, Unlock, Plus, Folder, File, Component, CheckSquare, Layers, Settings2, GitMerge } from 'lucide-react';
 import { useState } from 'react';
 import './FeatureManager.css';
 
@@ -23,22 +23,22 @@ export default function FeatureManager() {
   return (
     <div className="feature-manager">
       <div className="fm-tabs">
-        <button className={`fm-tab-btn ${activeTab === 'tree' ? 'active' : ''}`} onClick={() => setActiveTab('tree')} title="FeatureManager Design Tree">🌲</button>
-        <button className={`fm-tab-btn ${activeTab === 'properties' ? 'active' : ''}`} onClick={() => setActiveTab('properties')} title="PropertyManager">📋</button>
-        <button className={`fm-tab-btn ${activeTab === 'layers' ? 'active' : ''}`} onClick={() => setActiveTab('layers')} title="LayerManager">🗂️</button>
+        <button className={`fm-tab-btn ${activeTab === 'tree' ? 'active' : ''}`} onClick={() => setActiveTab('tree')} title="FeatureManager Design Tree"><GitMerge size={16} className="icon-yellow"/></button>
+        <button className={`fm-tab-btn ${activeTab === 'properties' ? 'active' : ''}`} onClick={() => setActiveTab('properties')} title="PropertyManager"><Settings2 size={16} className="icon-blue"/></button>
+        <button className={`fm-tab-btn ${activeTab === 'layers' ? 'active' : ''}`} onClick={() => setActiveTab('layers')} title="LayerManager"><Layers size={16}/></button>
       </div>
 
       <div className="fm-content">
         {activeTab === 'tree' && (
           <div className="fm-tree">
             <div className="fm-tree-item root">
-              <span>📄 Drawing1</span>
+              <Component size={14} className="icon-yellow"/> <span>Drawing1</span>
             </div>
-            <div className="fm-tree-item"><span>📁 Annotations</span></div>
-            <div className="fm-tree-item"><span>🗂️ Sheet1</span></div>
-            <div className="fm-tree-item child"><span>📐 Sheet Format1</span></div>
+            <div className="fm-tree-item"><Folder size={14} className="icon-yellow"/> <span>Annotations</span></div>
+            <div className="fm-tree-item"><Layers size={14} className="icon-blue"/> <span>Sheet1</span></div>
+            <div className="fm-tree-item child"><File size={14} className="icon-yellow"/> <span>Sheet Format1</span></div>
             <div className="fm-tree-item child">
-              <span>✏️ Drawing View1</span>
+              <CheckSquare size={14} className="icon-green"/> <span>Drawing View1</span>
               {entities.length > 0 && <span className="fm-count">({entities.length})</span>}
             </div>
           </div>
