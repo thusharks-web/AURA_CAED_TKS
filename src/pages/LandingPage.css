@@ -66,7 +66,7 @@
 .preview-dots span:nth-child(2) { background: #FEBC2E; }
 .preview-dots span:nth-child(3) { background: #28C840; }
 .preview-title { font-size: 12px; color: var(--text-muted); }
-.preview-canvas { position: relative; background: #1E1E2E; }
+.preview-canvas { position: relative; background: var(--bg-surface); }
 .preview-svg { width: 100%; display: block; }
 .preview-toolbar {
   position: absolute; top: 8px; left: 8px; display: flex; gap: 4px;

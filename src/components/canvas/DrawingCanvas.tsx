@@ -3,7 +3,7 @@ import { useCanvasStore } from '../../store/canvasStore';
 import type { Entity, LineData, CircleData, ArcData, RectangleData, EllipseData, PointData } from '../../types/entity.types';
 import type { Point } from '../../lib/geometry';
 import { distance } from '../../lib/geometry';
-import { COLORS } from '../../lib/constants';
+import { COLORS, SHEET_SIZES } from '../../lib/constants';
 import './DrawingCanvas.css';
 
 function generateId(): string {
@@ -19,7 +19,7 @@ export default function DrawingCanvas() {
     entities, activeTool, isConstructionMode, viewportOffset, zoom,
     gridEnabled, snapEnabled, gridSize, cursorPosition,
     addEntity, selectEntity, deselectAll, setCursorPosition,
-    setViewport, selectedEntityIds,
+    setViewport, selectedEntityIds, sheetSize,
   } = useCanvasStore();
 
   const [isDrawing, setIsDrawing] = useState(false);
@@ -75,9 +75,32 @@ export default function DrawingCanvas() {
     const render = () => {
       ctx.clearRect(0, 0, canvasSize.width, canvasSize.height);
 
-      // Background
-      ctx.fillStyle = COLORS.canvasBackground;
+      // Workspace Background
+      ctx.fillStyle = COLORS.surfaceDark;
       ctx.fillRect(0, 0, canvasSize.width, canvasSize.height);
+
+      // Sheet Shadow & Background
+      const sheetDim = SHEET_SIZES[sheetSize as keyof typeof SHEET_SIZES] || SHEET_SIZES.A4;
+      const sheetTL = worldToScreen(0, 0);
+      const sw = sheetDim.width * zoom;
+      const sh = sheetDim.height * zoom;
+
+      ctx.shadowColor = 'rgba(0,0,0,0.2)';
+      ctx.shadowBlur = 10 * zoom;
+      ctx.shadowOffsetX = 5 * zoom;
+      ctx.shadowOffsetY = 5 * zoom;
+
+      ctx.fillStyle = COLORS.canvasBackground;
+      ctx.fillRect(sheetTL.x, sheetTL.y, sw, sh);
+
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur = 0;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 0;
+
+      ctx.strokeStyle = COLORS.border;
+      ctx.lineWidth = 1;
+      ctx.strokeRect(sheetTL.x, sheetTL.y, sw, sh);
 
       // Grid
       if (gridEnabled) {
@@ -107,7 +130,7 @@ export default function DrawingCanvas() {
 
     animRef.current = requestAnimationFrame(render);
     return () => cancelAnimationFrame(animRef.current);
-  }, [entities, viewportOffset, zoom, gridEnabled, gridSize, canvasSize, isDrawing, startPoint, previewPoint, activeTool, cursorPosition, selectedEntityIds, isConstructionMode]);
+  }, [entities, viewportOffset, zoom, gridEnabled, gridSize, canvasSize, isDrawing, startPoint, previewPoint, activeTool, cursorPosition, selectedEntityIds, isConstructionMode, sheetSize]);
 
   function drawGrid(ctx: CanvasRenderingContext2D) {
     const gs = gridSize * zoom;
@@ -146,14 +169,14 @@ export default function DrawingCanvas() {
 
   function drawOrigin(ctx: CanvasRenderingContext2D) {
     const o = worldToScreen(0, 0);
-    ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+    ctx.strokeStyle = 'rgba(0,0,0,0.15)';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(o.x, 0); ctx.lineTo(o.x, canvasSize.height);
     ctx.moveTo(0, o.y); ctx.lineTo(canvasSize.width, o.y);
     ctx.stroke();
 
-    ctx.fillStyle = '#FF5252';
+    ctx.fillStyle = COLORS.error;
     ctx.beginPath();
     ctx.arc(o.x, o.y, 3, 0, Math.PI * 2);
     ctx.fill();
@@ -284,7 +307,7 @@ export default function DrawingCanvas() {
     const s = worldToScreen(startPoint.x, startPoint.y);
     const e = worldToScreen(previewPoint.x, previewPoint.y);
 
-    ctx.strokeStyle = isConstructionMode ? COLORS.constructionLine : 'rgba(108,99,255,0.8)';
+    ctx.strokeStyle = isConstructionMode ? COLORS.constructionLine : COLORS.accent;
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -313,7 +336,7 @@ export default function DrawingCanvas() {
 
     // Dimension readout during drawing
     const dist = distance(startPoint, previewPoint);
-    ctx.fillStyle = 'rgba(108,99,255,0.9)';
+    ctx.fillStyle = COLORS.accentDark;
     ctx.font = '12px JetBrains Mono';
     ctx.fillText(`${dist.toFixed(2)} mm`, e.x + 12, e.y - 8);
   }
